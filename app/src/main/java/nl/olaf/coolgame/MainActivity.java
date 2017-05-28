@@ -29,7 +29,6 @@ public class MainActivity extends Activity {
 
 		// Find some of the user interface elements
 		gameView = (CoolGameBoardView) findViewById(R.id.game);
-		tv = (TextView) findViewById(R.id.CurrentTurn);
 
 		// Create the game object. This contains all data and functionality
 		// belonging to the game

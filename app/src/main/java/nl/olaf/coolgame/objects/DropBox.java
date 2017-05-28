@@ -22,11 +22,10 @@ public class DropBox extends GameObject {
 
     @Override
     public void onTouched(GameBoard gameBoard) {
-        dropFiche(gameBoard);
-        checkFour(gameBoard);
+        dropFiche(gameBoard, getPositionX());
     }
 
-    public void dropFiche(GameBoard gameBoard) {
+    public void dropFiche(GameBoard gameBoard, int x) {
         Log.d(CoolGame.TAG, "Dropped Fiche");
         int fichePos = getPositionY() + 7 - fichesfrombottom;
         Fiche player1fiche = new Fiche();
@@ -37,48 +36,19 @@ public class DropBox extends GameObject {
             //do nothing
         } else {
             if (CoolGame.player1 == true) {
-                gameBoard.addGameObject(player1fiche, getPositionX(), fichePos);
+                gameBoard.addGameObject(player1fiche, x, fichePos);
                 ((CoolGame) gameBoard.getGame()).changeTurn();
                 CoolGame.player1 = false;
+                player1fiche.checkFour(gameBoard, player1fiche.getPositionX(), player1fiche.getPositionY(), true, false, 0);
             } else {
-                gameBoard.addGameObject(player2fiche, getPositionX(), fichePos);
+                gameBoard.addGameObject(player2fiche, x, fichePos);
                 ((CoolGame) gameBoard.getGame()).changeTurn();
                 CoolGame.player1 = true;
+                player2fiche.checkFour(gameBoard, player2fiche.getPositionX(), player2fiche.getPositionY(), true, false, 0);
             }
             fichesfrombottom++;
             gameBoard.updateView();
         }
     }
 
-    public void checkFour(GameBoard gameBoard) {
-        if(horizontalFour(gameBoard)) {
-            //new game
-        }
-        if(verticalFour(gameBoard)) {
-            //new game
-        }
-        if(diagonalFourLeft(gameBoard)) {
-            //new game
-        }
-        if(diagonalFourRight(gameBoard)) {
-            //new game
-        }
-    }
-
-    public boolean horizontalFour(GameBoard gameBoard) {
-        //check if we have a  four-in-a-row
-        return false;
-    }
-    public boolean verticalFour(GameBoard gameBoard) {
-        //check if we have a four-in-a-row
-        return false;
-    }
-    public boolean diagonalFourLeft(GameBoard gameBoard) {
-        //check if we have a four-in-a-row
-        return false;
-    }
-    public boolean diagonalFourRight(GameBoard gameBoard) {
-        //check if we have a four-in-a-row
-        return false;
-    }
 }

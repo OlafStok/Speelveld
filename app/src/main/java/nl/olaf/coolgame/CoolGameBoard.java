@@ -1,5 +1,6 @@
 package nl.olaf.coolgame;
 
+import nl.olaf.coolgame.objects.DropBox;
 import nl.playground.model.GameBoard;
 
 /**
@@ -20,7 +21,9 @@ public class CoolGameBoard extends GameBoard {
 
 	@Override
 	public void onEmptyTileClicked(int x, int y) {
-		// Nothing to do in this game.
+		DropBox db = (DropBox) getObject(x, 0);
+		db.dropFiche(this, x);
+		db = null;
 	}
 	
 	@Override

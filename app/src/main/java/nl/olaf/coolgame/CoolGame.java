@@ -39,8 +39,6 @@ public class CoolGame extends Game {
 	public void initNewGame() {
 		player1 = true;
 		vierOpEenRij = false;
-		activity.getTv().setText("Player 1");
-
 		GameBoard board = getGameBoard();
 		board.removeAllObjects();
 
@@ -72,11 +70,9 @@ public class CoolGame extends Game {
 	}
 
 	public void changeTurn() {
-		if(activity.getTv().getText().equals("Player 1")) {
-		activity.getTv().setText("Player 2");
-		}
-		else {
-			activity.getTv().setText("Player 1");
-		}
+
+	}
+	public void setWinner(String winner) {
+		initNewGame();
 	}
 }
