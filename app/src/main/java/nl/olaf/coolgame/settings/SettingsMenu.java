@@ -33,8 +33,4 @@ public class SettingsMenu {
 
     }
 
-    public void saveSettings() {
-
-    }
-
 }

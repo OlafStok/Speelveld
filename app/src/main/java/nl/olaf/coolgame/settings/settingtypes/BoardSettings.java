@@ -4,7 +4,7 @@ package nl.olaf.coolgame.settings.settingtypes;
  * Created by Hoodz on 29/05/2017.
  */
 
-public class FieldSettings {
+public class BoardSettings {
 
     private Size fieldSize;
 
@@ -30,7 +30,7 @@ public class FieldSettings {
         }
     }
 
-    public FieldSettings() {
+    public BoardSettings() {
         this.fieldSize = Size.SMALL;
     }
 

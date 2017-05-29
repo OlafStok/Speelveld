@@ -1,4 +1,4 @@
-package nl.olaf.coolgame.settings.settingtypes.powerup;
+package nl.olaf.coolgame.powerup;
 
 /**
  * Created by Hoodz on 29/05/2017.

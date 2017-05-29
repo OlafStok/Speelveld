@@ -1,11 +1,14 @@
-package nl.olaf.coolgame.settings.settingtypes.powerup;
+package nl.olaf.coolgame.settings.settingtypes;
 
 import java.util.ArrayList;
+
+import nl.olaf.coolgame.powerup.PowerUp;
 
 /**
  * Created by Hoodz on 29/05/2017.
  */
 
+@SuppressWarnings("unchecked")
 public class PowerUpSettings {
 
     private boolean enabled;
