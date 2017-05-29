@@ -70,7 +70,7 @@ public class CoolGame extends Game {
 	}
 
 	public void changeTurn() {
-
+		//can be called when turn is changed to update powerups or sth
 	}
 	public void setWinner(String winner) {
 		initNewGame();
