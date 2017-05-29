@@ -1,41 +1,33 @@
 package nl.olaf.coolgame.settings.settingtypes;
 
-import nl.olaf.coolgame.settings.settingtypes.powerup.PowerUpSettings;
-
 /**
  * Created by Hoodz on 29/05/2017.
  */
 
 public class GameSettings {
 
-    private int playerCount;
     private PowerUpSettings powerUps;
-    private FieldSettings fieldSettings;
+    private BoardSettings boardSettings;
+    private PlayerSettings playerSettings;
+
+    public static String TAG = "GameSettings";
 
     public GameSettings() {
-        this.playerCount = 2;
         this.powerUps = new PowerUpSettings();
-        this.fieldSettings = new FieldSettings();
+        this.boardSettings = new BoardSettings();
+        this.playerSettings = new PlayerSettings();
     }
 
-    public int getPlayerCount() {
-        return playerCount;
-    }
-
-    public void setPlayerCount(int playerCount) {
-        this.playerCount = playerCount;
-    }
-
-    public PowerUpSettings isPowerUps() {
+    public PowerUpSettings getPowerUpsSettings() {
         return powerUps;
     }
 
-    public void setPowerUps(PowerUpSettings powerUps) {
-        this.powerUps = powerUps;
+    public BoardSettings getBoardSettings() {
+        return boardSettings;
     }
 
-    public FieldSettings getFieldSettings() {
-        return fieldSettings;
+    public PlayerSettings getPlayerSettings() {
+        return playerSettings;
     }
 
 }

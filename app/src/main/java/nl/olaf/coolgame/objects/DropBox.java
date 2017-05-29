@@ -32,6 +32,7 @@ public class DropBox extends GameObject {
         Fiche player2fiche = new Fiche();
         player1fiche.player1 = true;
         player2fiche.player1 = false;
+
         if (fichesfrombottom == 7) {
             //do nothing
         } else {
