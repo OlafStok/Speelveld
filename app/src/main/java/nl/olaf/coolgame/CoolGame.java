@@ -1,5 +1,7 @@
 package nl.olaf.coolgame;
 
+import android.widget.ImageView;
+
 import nl.olaf.coolgame.objects.DropBox;
 import nl.playground.model.Game;
 import nl.playground.model.GameBoard;
@@ -18,6 +20,11 @@ public class CoolGame extends Game {
 
 	/** Aantal tegels op een rij. */
 	private boolean vierOpEenRij = false;
+
+	public static boolean isPlayer1() {
+		return player1;
+	}
+
 	public static boolean player1 = true;
 
 	/**
