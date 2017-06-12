@@ -2,8 +2,11 @@ package nl.olaf.coolgame;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +22,8 @@ public class MainActivity extends Activity {
 	private CoolGame game;
 	private CoolGameBoardView gameView;
 	private TextView tv;
+	public ImageView player1ico;
+	public ImageView player2ico;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -30,6 +35,7 @@ public class MainActivity extends Activity {
 		// Find some of the user interface elements
 		gameView = (CoolGameBoardView) findViewById(R.id.game);
 
+
 		// Create the game object. This contains all data and functionality
 		// belonging to the game
 		game = new CoolGame(this);
@@ -38,6 +44,8 @@ public class MainActivity extends Activity {
 		GameBoard board = game.getGameBoard();
 		gameView.setGameBoard(board);
 		gameView.setFixedGridSize(board.getWidth(), board.getHeight());
+		player1ico = (ImageView) findViewById(R.id.imageView);
+		player2ico = (ImageView) findViewById(R.id.imageView6);
 		
 		// Do something when user clicks new game
 		registerNewGameButton();
@@ -45,6 +53,22 @@ public class MainActivity extends Activity {
 		// Tell user to start the game
 		Toast.makeText(getApplicationContext(), "Lets start",
 				Toast.LENGTH_SHORT).show();
+
+		final Handler handler = new Handler();
+		class MyRunnable implements Runnable {
+			private Handler handler;
+			public MyRunnable(Handler handler) {
+				this.handler = handler;
+			}
+			@Override
+			public void run() {
+				this.handler.postDelayed(this, 50);
+				changeTurn();
+				Log.d(CoolGame.TAG, "updated");
+			}
+		}
+		handler.post(new MyRunnable(handler));
+
 	}
 
 	/**
@@ -70,7 +94,7 @@ public class MainActivity extends Activity {
 	 */
 	private void registerNewGameButton() {
 		// Find the 'New Game'-button in the activity
-		final Button button1 = (Button) findViewById(R.id.newGameButton);
+		final Button button1 = (Button) findViewById(R.id.button);
 		
 		// Add a click listener to the button that calls initNewGame()
 		button1.setOnClickListener(new View.OnClickListener() {
@@ -81,4 +105,15 @@ public class MainActivity extends Activity {
 		});
 	}
 
+	public void changeTurn() {
+		//change playerico with turn
+		if(game.isPlayer1()) {
+			player1ico.setVisibility(View.VISIBLE);
+			player2ico.setVisibility(View.INVISIBLE);
+		}
+		else {
+			player2ico.setVisibility(View.VISIBLE);
+			player1ico.setVisibility(View.INVISIBLE);
+		}
+	}
 }

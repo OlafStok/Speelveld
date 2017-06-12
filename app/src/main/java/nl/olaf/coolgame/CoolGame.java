@@ -21,6 +21,11 @@ public class CoolGame extends Game {
 
 	/** Aantal tegels op een rij. */
 	private boolean vierOpEenRij = false;
+
+	public static boolean isPlayer1() {
+		return player1;
+	}
+
 	public static boolean player1 = true;
 
 
